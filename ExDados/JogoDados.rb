@@ -7,7 +7,7 @@ class JogoDados
     def initialize
       @numbers = []
       i = -1
-      for i in 1..7
+      for i in 1..6
     	@numbers.push(i)		     		   
       end		 	
       @numbers
@@ -45,7 +45,7 @@ class JogoDados
     begin 
       jogo1 = JogoDados::Sortear.new
       jogo2 = JogoDados::Sortear.new
-      if (jogo1.sortear + jogo2.sortear) == 7
+      if (jogo1.sortear + jogo2.sortear) == 6
         p 'Ganhou'
       else
         p 'Perdeu'		
