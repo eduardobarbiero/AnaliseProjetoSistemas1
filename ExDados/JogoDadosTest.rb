@@ -3,7 +3,7 @@ require "test/unit"
 
 class InfosTest < Test::Unit::TestCase
   def test_infos    
-    assert_equal(true, (Array.new([1,2,3,4,5,6,7]) == JogoDados::Dado.infos))   
+    assert_equal(true, (Array.new([1,2,3,4,5,6]) == JogoDados::Dado.infos))   
   end
 end	
 
