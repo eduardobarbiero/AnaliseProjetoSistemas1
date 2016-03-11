@@ -1,13 +1,17 @@
 class HallFame
   attr_accessor :player
   
+  def initialize
+    @player = []
+  end	
+  
   class Player    
     attr_accessor :nome
+	attr_accessor :point
   end  
     
   def top_10    
-	begin
-      player = []	
+	begin      
 	  new_player = Player.new	  
 	  new_player.nome = "Ninguem jogando"
 	  player << new_player
@@ -15,7 +19,9 @@ class HallFame
 	rescue => e
 	  p e.to_s
     end
-  end 
+  end
+  
+  
 end
 
 class Main
@@ -30,4 +36,4 @@ class Main
   end
 end	
 
-#Main.new #jogar
+Main.new #jogar
