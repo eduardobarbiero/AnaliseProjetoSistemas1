@@ -19,6 +19,16 @@ class HallFame
 	rescue => e
 	  p e.to_s
     end
+  end  
+  
+  def sort players    
+    sorted = players.sort {|x,y| y.point<=>x.point}	
+	sorted
+  end
+  
+  def sort_first_10 players        
+    sorted = players.first(10).sort {|x,y| y.point<=>x.point}	
+	sorted
   end
   
   def set_players    
@@ -32,16 +42,6 @@ class HallFame
 	end	
 	hall.player
   end	
-  
-  def sort players    
-    sorted = players.sort {|x,y| y.point<=>x.point}	
-	sorted
-  end
-  
-  def sort_first_10 players        
-    sorted = players.first(10).sort {|x,y| y.point<=>x.point}	
-	sorted
-  end
 end
 
 class Main
@@ -52,6 +52,7 @@ class Main
 
 	  hall = HallFame.new	  
 	  hall.sort(hall.set_players)
+	  hall.sort_first_10(hall.set_players)
 	  jogo = gets
     rescue => e
       p e.to_s
@@ -59,4 +60,4 @@ class Main
   end
 end	
 
-Main.new #jogar
+#Main.new #jogar

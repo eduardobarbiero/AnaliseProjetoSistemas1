@@ -14,8 +14,8 @@ class HallFameTest < Test::Unit::TestCase
   def test_gamers_sort_first_10
     hall = HallFame.new
     players = set_players
-	sorted = HallFame.sort_first_10(players)
-    assert_nothing_raised((sorted[hall.length-1] > sorted[hall.length-2]))  
+	sorted = hall.sort_first_10(players)
+    assert_nothing_raised((sorted[sorted.length-1].point.to_i > sorted[sorted.length-2].point.to_i))  
   end
   
   def test_gamers_sort
