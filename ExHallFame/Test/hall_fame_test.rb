@@ -18,6 +18,13 @@ class HallFameTest < Test::Unit::TestCase
     assert_nothing_raised((sorted[hall.length-1] > sorted[hall.length-2]))  
   end
   
+  def test_gamers_sort
+    hall = HallFame.new
+    players = set_players
+	sorted = HallFame.sort(players)
+    assert_equal(true, (sorted[hall.length-1] > sorted[hall.length-2]))
+  end
+  
   private
   
   def set_players
