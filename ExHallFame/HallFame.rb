@@ -13,14 +13,14 @@ class HallFame
 	  new_player = Player.new
 	  new_player.nome = "Ninguem jogando"
 	  @player << new_player	  
-	  @player.nome
+	  @player.length
     end   
   end
 end
 
 class Main
   def initialize
-    begin    
+    begin
       p HallFame.top_10
 	  jogo = gets
     rescue => e
