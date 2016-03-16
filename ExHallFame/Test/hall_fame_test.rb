@@ -25,6 +25,13 @@ class HallFameTest < Test::Unit::TestCase
     assert((sorted[0].point.to_i > sorted[1].point.to_i))
   end
   
+  def test_point_data
+    hall = HallFame.new
+    players = set_players
+	sorted = hall.sort(players)
+	assert((sorted[0].date > sorted[1].date and sorted[0].point.to_i > sorted[1].point.to_i))
+  end
+  
   private
   
   def set_players
@@ -34,6 +41,7 @@ class HallFameTest < Test::Unit::TestCase
 	  player = HallFame::Player.new
 	  player.nome = "Jogador " + i.to_s
 	  player.point = Random.rand(100)
+	  player.date = i.days.from_now
 	  hall.player << player
 	end	
 	hall.player
