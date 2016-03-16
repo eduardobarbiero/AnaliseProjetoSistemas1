@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'active_support/core_ext/numeric/time'
+
 class HallFame
   attr_accessor :player
   
@@ -8,6 +11,7 @@ class HallFame
   class Player    
     attr_accessor :nome
 	attr_accessor :point
+	attr_accessor :date
   end  
     
   def top_10    
@@ -22,7 +26,8 @@ class HallFame
   end  
   
   def sort players    
-    sorted = players.sort {|x,y| y.point<=>x.point}	
+    #sorted = players.sort {|x,y| y.point<=>x.point}	
+	sorted = players.sort {|x,y| [y.point, y.date] <=> [x.point, x.date]}	
 	sorted
   end
   
@@ -38,6 +43,7 @@ class HallFame
 	  player = HallFame::Player.new
 	  player.nome = "Jogador " + i.to_s
 	  player.point = Random.rand(100)
+	  player.date = Time.now
 	  hall.player << player
 	end	
 	hall.player

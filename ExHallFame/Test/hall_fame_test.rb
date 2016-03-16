@@ -1,5 +1,7 @@
 require_relative "../hall_fame"
 require "test/unit"
+require 'rubygems'
+require 'active_support/core_ext/numeric/time'
 
 class HallFameTest < Test::Unit::TestCase  
   def test_top10
@@ -15,21 +17,21 @@ class HallFameTest < Test::Unit::TestCase
     hall = HallFame.new
     players = set_players
 	sorted = hall.sort_first_10(players)
-    assert((sorted[0].point.to_i > sorted[1].point.to_i))  
+    assert((sorted[0].point.to_i >= sorted[1].point.to_i))  
   end
   
   def test_gamers_sort
     hall = HallFame.new
     players = set_players
 	sorted = hall.sort(players)
-    assert((sorted[0].point.to_i > sorted[1].point.to_i))
+    assert((sorted[0].point.to_i >= sorted[1].point.to_i))
   end
   
   def test_point_data
     hall = HallFame.new
     players = set_players
 	sorted = hall.sort(players)
-	assert((sorted[0].date > sorted[1].date and sorted[0].point.to_i > sorted[1].point.to_i))
+	assert((sorted[0].date >= sorted[1].date and sorted[0].point.to_i >= sorted[1].point.to_i))
   end
   
   private
