@@ -15,14 +15,14 @@ class HallFameTest < Test::Unit::TestCase
     hall = HallFame.new
     players = set_players
 	sorted = hall.sort_first_10(players)
-    assert((sorted[sorted.length-1].point.to_i > sorted[sorted.length-2].point.to_i))  
+    assert((sorted[0].point.to_i > sorted[1].point.to_i))  
   end
   
   def test_gamers_sort
     hall = HallFame.new
     players = set_players
-	sorted = HallFame.sort(players)
-    assert_equal(true, (sorted[hall.length-1] > sorted[hall.length-2]))
+	sorted = hall.sort(players)
+    assert((sorted[0].point.to_i > sorted[1].point.to_i))
   end
   
   private
