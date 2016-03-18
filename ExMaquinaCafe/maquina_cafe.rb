@@ -3,6 +3,7 @@ require "rubygems"
 class MaquinaCafe
 
   attr_accessor :value
+  attr_accessor :cash
 
   def initialize
     @value = 0.35
