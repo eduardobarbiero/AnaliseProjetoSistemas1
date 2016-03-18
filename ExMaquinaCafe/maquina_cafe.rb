@@ -10,9 +10,9 @@ class MaquinaCafe
 
   def set_buttons
     buttons = []
-    functions = ['Preto', 'Creme', 'Açucar', 'Creme/Açucar']
+    functions = ['Preto', 'Creme', 'Açucar', 'Creme/Açucar', 'Devolver moeda']
 
-    for i in 0..4
+    for i in 0..5
       button = Button.new
       button.function = functions[i]
       buttons << button
