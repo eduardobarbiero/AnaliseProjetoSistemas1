@@ -18,5 +18,9 @@ class MaquinaCafeTest < Test::Unit::TestCase
     assert(machine.value.eql? 0.35)
   end
 
- 
+  def test_insert_cash
+    machine = MaquinaCafe.new
+    machine.cash = 2
+    assert_equal(2, machine.cash)
+  end
 end
