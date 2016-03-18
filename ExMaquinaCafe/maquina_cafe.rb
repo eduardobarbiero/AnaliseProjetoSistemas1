@@ -6,7 +6,19 @@ class MaquinaCafe
   attr_accessor :cash
 
   def initialize
+    @actions = set_buttons
     @value = 0.35
+  end
+
+
+  def action function
+    result = @cash - @value
+    raise 'Can not perform the operation' if result < 0
+    if @actions[0].function.eql? function or @actions[1].function.eql? function or @actions[2].function.eql? function or @actions[3].function.eql? function
+      result
+    else
+      @cash
+    end
   end
 
   def set_buttons
