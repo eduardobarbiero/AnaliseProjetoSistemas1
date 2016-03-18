@@ -1,14 +1,14 @@
 require_relative "../maquina_cafe"
-require "test/unit"
 require 'rubygems'
+require "test/unit"
 
 class MaquinaCafeTest < Test::Unit::TestCase  
-  def buttons_test
+  def test_buttons
     machine = MaquinaCafe.new
     buttons = machine.set_buttons
-    assert(buttons[0].function.equal? "Preto")
-    assert(buttons[1].function.equal? "Creme")
-    assert(buttons[2].function.equal? "Açucar")
-    assert(buttons[4].function.equal? "Creme/Açucar")
+    assert(buttons[0].function.eql? "Preto")
+    assert(buttons[1].function.eql? "Creme")
+    assert(buttons[2].function.eql? "Açucar")
+    assert(buttons[3].function.eql? "Creme/Açucar")
   end
 end
