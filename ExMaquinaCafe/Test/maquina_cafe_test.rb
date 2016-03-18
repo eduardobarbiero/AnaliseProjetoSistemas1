@@ -31,4 +31,11 @@ class MaquinaCafeTest < Test::Unit::TestCase
     assert_equal(0.50, machine.action(buttons[4].function))
   end
 
+  def test_order
+    machine = MaquinaCafe.new
+    buttons = machine.set_buttons
+    machine.cash = 1.00
+    assert_equal(0.65, machine.action(buttons[2].function))
+  end
+
 end
