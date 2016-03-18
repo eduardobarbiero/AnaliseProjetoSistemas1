@@ -11,4 +11,9 @@ class MaquinaCafeTest < Test::Unit::TestCase
     assert(buttons[2].function.eql? "Açucar")
     assert(buttons[3].function.eql? "Creme/Açucar")
   end
+
+  def test_value_coffe
+    machine = MaquinaCafe.new
+    assert(machine.value.eql? 0.35)
+  end
 end
