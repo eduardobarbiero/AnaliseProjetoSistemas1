@@ -23,4 +23,12 @@ class MaquinaCafeTest < Test::Unit::TestCase
     machine.cash = 2
     assert_equal(2, machine.cash)
   end
+
+  def test_back_cash
+    machine = MaquinaCafe.new
+    buttons = machine.set_buttons
+    machine.cash = 0.50
+    assert_equal(0.50, machine.action(buttons[4].function))
+  end
+
 end
