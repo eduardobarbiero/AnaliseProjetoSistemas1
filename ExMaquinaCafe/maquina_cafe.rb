@@ -6,10 +6,10 @@ class MaquinaCafe
   attr_accessor :cash
 
   def initialize
+    @cash = 0
     @actions = set_buttons
     @value = 0.35
   end
-
 
   def action function
     result = @cash - @value
@@ -33,10 +33,41 @@ class MaquinaCafe
     buttons
   end
 
+  def deposita value
+    @cash = @cash + value.valor
+  end
+
+  def display
+    @cash
+  end
+
+  def cafe_preto
+    discont 0.35
+    "cafe preto"
+  end
+
+  def cafe_creme_acucar
+    discont 0.35
+    "cafe creme acucar"
+  end
+
+  def discont value
+    @cash -= value
+  end
+
   class Button
     attr_accessor :function
   end
+end
 
+class DezCentavos
+  def valor
+    0.10
+  end
+end
 
-
+class VinteCincoCentavos
+  def valor
+    0.25
+  end
 end

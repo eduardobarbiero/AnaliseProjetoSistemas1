@@ -37,5 +37,28 @@ class MaquinaCafeTest < Test::Unit::TestCase
     machine.cash = 1.00
     assert_equal(0.65, machine.action(buttons[2].function))
   end
+  
+  # parte 2
+  
+  def test_insert_cents
+    machine = MaquinaCafe.new
 
+    machine.deposita(DezCentavos.new)
+    assert_equal 0.10, machine.display
+
+    machine.deposita(VinteCincoCentavos.new)
+    assert_equal 0.35, machine.display
+
+    assert_equal "cafe preto", machine.cafe_preto
+
+    assert_equal 0, machine.display
+  end
+
+  def test_insert_cents_discont
+    machine = MaquinaCafe.new
+    machine.deposita(VinteCincoCentavos.new)
+    machine.deposita(VinteCincoCentavos.new)
+    assert_equal "cafe creme acucar", machine.cafe_creme_acucar
+    assert_equal 0.15, machine.display
+  end
 end
